@@ -29,8 +29,8 @@ class App extends Component {
         <Navbar />
 
         <Switch>
-           //Agregamos ruta para el Login
-          // Agregamos ruta para el Signup
+          /* Agregamos ruta para el Login */
+          /* Agregamos ruta para el Signup */
           <Route exact path='/private' component={Private} />
         </Switch>
       </div>

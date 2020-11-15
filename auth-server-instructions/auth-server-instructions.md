@@ -75,7 +75,7 @@ router.post(
   // revisa que se hayan completado los valores de username y password usando la función helper
   validationLoggin(),
   async (req, res, next) => {
-    const {//desestructuramos el nombre y la contraseña de req.body} = req.body;
+    const {//desestructuramos el nombre de usuario y la contraseña de req.body} = req.body;
 
     try {
       // chequea si el username ya existe en la BD

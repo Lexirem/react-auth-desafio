@@ -3,7 +3,29 @@ import auth from "./auth-service";	// Importamos funciones para llamadas axios a
 const { Consumer, Provider } = React.createContext();
 
 // HOC para crear Consumer
-const withAuth = (WrappedComponent) => {};
+const withAuth = (WrappedComponent) => {
+  return class extends React.Component {
+    render() {    
+      return (
+        <Consumer>
+        {/* El componente <Consumer> provee un callback que recibe el "value" con el objeto Providers */}  
+        { 
+          ({login, signup, user, logout, isLoggedin}) => {
+            return (
+              <WrappedComponent 
+                login={login} 
+                signup={signup} 
+                user={user}
+                logout={logout}
+                isLoggedin={isLoggedin}
+                {...this.props} />
+            );
+          }}
+        </Consumer>
+      );
+    }
+  };  
+};
 
 // Provider
 class AuthProvider extends React.Component {

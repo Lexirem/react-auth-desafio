@@ -3,6 +3,8 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 
 import AuthProvider from './lib/AuthProvider';
+import AnonRoute from './components/AnonRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -21,10 +23,10 @@ class App extends Component {
           <Switch>
           {/*     Agregamos ruta para Login
               Agregamos ruta para el SignUp */}
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
+            <AnonRoute path="/login" component={Login} />
+            <AnonRoute path="/signup" component={SignUp} />
             <Route exact path="/" component={Home} />
-            <Route exact path='/private' component={Private} />
+            <PrivateRoute exact path='/private' component={Private} />
           </Switch>  
         </div>
 
